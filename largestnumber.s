@@ -1,0 +1,26 @@
+    PRESERVE8
+     THUMB
+     AREA     appcode, CODE, READONLY
+     EXPORT __main
+	 ENTRY 
+__main  FUNCTION
+	MOV R0,#45
+	MOV R1,#50
+	MOV R2,#10
+	MOV R3,#0
+	CMP R0,R1
+	BLE LOOP1
+	CMP R0,R2
+	BGT LOOP2
+LOOP1 CMP R1,R2
+      BGT LOOP3
+	  MOV R3,R2
+	  B STOP
+LOOP2 MOV R3,R0
+      B STOP
+LOOP3 MOV R3,R1
+      B STOP
+STOP B STOP	  
+	  ENDFUNC
+	  END
+		  
